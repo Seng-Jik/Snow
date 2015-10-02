@@ -27,7 +27,7 @@ LIB_DEBUG = $(LIB)
 LDFLAGS_DEBUG = $(LDFLAGS)
 OBJDIR_DEBUG = bin\\Debug\\obj
 DEP_DEBUG = 
-OUT_DEBUG = bin\\Debug\\Snow.dll
+OUT_DEBUG = bin\\Debug\\Snow_Dbg.dll
 
 INC_RELEASE = $(INC)
 CFLAGS_RELEASE = $(CFLAGS) -fexpensive-optimizations -O2
