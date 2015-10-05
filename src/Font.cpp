@@ -1,6 +1,6 @@
 #include "Core/Font.h"
 
-using namespace Core;
+using namespace Snow;
 using namespace std;
 
 Font::Font()

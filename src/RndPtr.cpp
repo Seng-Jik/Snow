@@ -2,10 +2,10 @@
 #include "Core/Activity.h"
 #include <stack>
 
-using namespace Core;
+using namespace Snow;
 using namespace std;
 
-namespace Core{
+namespace Snow{
     RndPtr pRnd;
     Activity* nowFocus;
     Activity* nextFocus;

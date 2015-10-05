@@ -9,10 +9,10 @@
 #include <list>
 
 using namespace std;
-using namespace Core;
+using namespace Snow;
 
 
-void Core::GetString(std::ifstream& in,std::string& str)
+void Snow::GetString(std::ifstream& in,std::string& str)
 {
     str = "";
     while(1)
@@ -23,14 +23,14 @@ void Core::GetString(std::ifstream& in,std::string& str)
     }
 }
 
-void Core::Pos(int& opr_x,int& opr_y,
+void Snow::Pos(int& opr_x,int& opr_y,
                         float x,float y)
 {
     opr_x = pRnd.GetW() * x;
     opr_y = pRnd.GetH() * y;
 }
 
-void Core::Pos(int& opr_x,int& opr_y,
+void Snow::Pos(int& opr_x,int& opr_y,
                         const char base,int x,int y)
 {
     if((base & 0xF0) == 0xA0) opr_x = pRnd.GetW()/3;
@@ -42,14 +42,14 @@ void Core::Pos(int& opr_x,int& opr_y,
     else opr_y = (pRnd.GetH()/4) * (base & 0x0F) + y;
 }
 
-bool Core::InRect(const SDL_Rect& r,int x,int y)
+bool Snow::InRect(const SDL_Rect& r,int x,int y)
 {
     return
         x >= r.x && x <= r.x + r.w &&
         y >= r.y && y <=r.y + r.h;
 }
 
-void Core::Activity::RegControl(Control& c)
+void Snow::Activity::RegControl(Control& c)
 {m_ansList.push_front(&c);}
 
 Uint32 Time2Fps(Uint32 ms)
@@ -57,17 +57,17 @@ Uint32 Time2Fps(Uint32 ms)
     return float(ms)/1000 * FPS;
 }
 
-void Core::RndPtr::Clear(){
+void Snow::RndPtr::Clear(){
     SDL_Rect r = {0,0,pRnd.GetW(),pRnd.GetH()};
     SDL_RenderFillRect(m_rnd,&r);
 }
 
-void Core::UpperCase(std::string& s){
+void Snow::UpperCase(std::string& s){
     FOR_EACH(p,s.begin(),s.end())
         if(*p>='a' && *p<='z') *p-='a'-'A';
 }
 
-string Core::GetLine(ResFile& r,Uint32& pos){
+string Snow::GetLine(ResFile& r,Uint32& pos){
     string Line;
     for(;pos<r.Size() && r[pos] != '\n';++pos)
         Line+=r[pos];
@@ -75,7 +75,7 @@ string Core::GetLine(ResFile& r,Uint32& pos){
     return Line;
 }
 
-Uint32 Core::Time2Fps(unsigned int ms){
+Uint32 Snow::Time2Fps(unsigned int ms){
     return Uint32(float(ms) / 1000 * FPS);
 }
 
@@ -88,7 +88,7 @@ bool DTO_isBackColor(SDL_Point& poi,SDL_Surface* sur){
     return *((Uint8*)sur -> pixels + sur ->pitch*poi.y + poi.x*4+3) < 0xff;
 }
 
-void Core::DrawTextOutLine(SDL_Surface* sur)
+void Snow::DrawTextOutLine(SDL_Surface* sur)
 {
     SDL_LockSurface( sur );
     Uint8* orgPix = (Uint8*)sur ->pixels;
@@ -119,7 +119,7 @@ void Core::DrawTextOutLine(SDL_Surface* sur)
     SDL_UnlockSurface( sur );
 }
 
-void Core::FastBlurARGB8888(SDL_Surface* pOrg,int radius){
+void Snow::FastBlurARGB8888(SDL_Surface* pOrg,int radius){
     SDL_LockSurface(pOrg);
       if (radius<1){
         return;

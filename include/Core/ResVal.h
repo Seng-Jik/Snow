@@ -2,7 +2,7 @@
 #define _HEAD_RESVAL_
 #include <map>
 
-namespace Core{
+namespace Snow{
 
 class ResVal
 {

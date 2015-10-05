@@ -12,7 +12,7 @@
 
 typedef std::pair<size_t, size_t> position;
 
-namespace Core{
+namespace Snow{
 
 	class CSVEditor
 	{

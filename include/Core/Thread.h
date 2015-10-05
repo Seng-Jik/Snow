@@ -5,7 +5,7 @@
 //void func(Thread*);
 
 #include "SDLbase.h"
-namespace Core
+namespace Snow
 {
     typedef void* THREAD_ID;
     class Thread;

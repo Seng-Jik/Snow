@@ -1,8 +1,8 @@
 #include "Core/Thread.h"
 #define THREAD_WAIT 25
-using namespace Core;
+using namespace Snow;
 //子线程内提供的API实现
-namespace Core
+namespace Snow
 {
     int LaunchThread(THREAD_ID ThreadObject)	//这个函数已经开始新线程了
     {

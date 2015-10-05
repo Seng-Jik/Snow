@@ -65,7 +65,6 @@
 		<Unit filename="include/Core/CSVReader.h" />
 		<Unit filename="include/Core/Control.h" />
 		<Unit filename="include/Core/Debug.h" />
-		<Unit filename="include/Core/Error.h" />
 		<Unit filename="include/Core/Font.h" />
 		<Unit filename="include/Core/Globals.h" />
 		<Unit filename="include/Core/Misc.h" />
@@ -76,17 +75,16 @@
 		<Unit filename="include/Core/RndPtr.h" />
 		<Unit filename="include/Core/SDLbase.h" />
 		<Unit filename="include/Core/Sound.h" />
+		<Unit filename="include/Core/Sprite.h" />
 		<Unit filename="include/Core/Surface.h" />
 		<Unit filename="include/Core/TCPNet.h" />
-		<Unit filename="include/Core/Texture.h" />
 		<Unit filename="include/Core/Thread.h" />
 		<Unit filename="include/Core/Timer.h" />
 		<Unit filename="include/Core/UDPNet.h" />
 		<Unit filename="src/Bundle.cpp" />
 		<Unit filename="src/CSVEditor.cpp" />
 		<Unit filename="src/CSVReader.cpp" />
-		<Unit filename="src/CoreMain.cpp" />
-		<Unit filename="src/Error.cpp" />
+		<Unit filename="src/Core.cpp" />
 		<Unit filename="src/Font.cpp" />
 		<Unit filename="src/Misc.cpp" />
 		<Unit filename="src/RenderTarget.cpp" />
@@ -94,9 +92,9 @@
 		<Unit filename="src/ResVal.cpp" />
 		<Unit filename="src/RndPtr.cpp" />
 		<Unit filename="src/Sound.cpp" />
+		<Unit filename="src/Sprite.cpp" />
 		<Unit filename="src/Surface.cpp" />
 		<Unit filename="src/TCPNet.cpp" />
-		<Unit filename="src/Texture.cpp" />
 		<Unit filename="src/Thread.cpp" />
 		<Unit filename="src/UDPNet.cpp" />
 		<Extensions>

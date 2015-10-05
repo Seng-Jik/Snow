@@ -3,10 +3,10 @@
 #include "SDLbase.h"
 #include <string>
 
-namespace Core{
+namespace Snow{
     class Activity;
     class RndPtr{   //渲染器和窗口智能指针,请不要创建它的对象，请使用pRnd对象
-    friend void Core::CoreRun(Activity* start);
+    friend void Snow::Run(Activity* start);
     private:
         SDL_Window* m_wnd;
         SDL_Renderer* m_rnd;

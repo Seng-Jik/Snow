@@ -14,7 +14,7 @@
 
 #include "SDLbase.h"
 #include "Globals.h"
-namespace Core
+namespace Snow
 {
     class Timer
     {
@@ -28,11 +28,11 @@ namespace Core
         inline operator Uint32 ();
     };
 
-    class FPSTimer{
+    class FrameTimer{
     private:
          Uint32 m_tck;
     public:
-        inline FPSTimer(){
+        inline FrameTimer(){
             m_tck = pRnd.GetFpsCount();
         }
         inline void Reset(){

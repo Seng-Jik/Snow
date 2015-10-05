@@ -1,7 +1,7 @@
 #include "Core/RenderTarget.h"
 #include "Core/Globals.h"
 #include "Core/RndPtr.h"
- using namespace Core;
+ using namespace Snow;
 
 RenderTarget::RenderTarget(int w, int h)
 {

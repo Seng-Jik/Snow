@@ -1,18 +1,18 @@
 
 #include "Core/Sound.h"
-using namespace Core;
+using namespace Snow;
 
-//std::map<int,Mix_Chunk*> Sound_Loop::m_ChnToCnk;
+//std::map<int,Mix_Chunk*> TwoPartsLoopingMusic::m_ChnToCnk;
 unsigned int Sound::m_channelCount = 1;
-std::map<int,Mix_Chunk*> Sound_Loop::m_ChnToCnk;
+std::map<int,Mix_Chunk*> TwoPartsLoopingMusic::m_ChnToCnk;
 
-void Core::Sound_CallBack(const int channel)
+void Snow::Sound_CallBack(const int channel)
 {
-	if (Sound_Loop::m_ChnToCnk.count(channel) == 0) return;
+	if (TwoPartsLoopingMusic::m_ChnToCnk.count(channel) == 0) return;
 	else
 	{
-		Mix_PlayChannel(channel,Sound_Loop::m_ChnToCnk[channel],-1);
-		Sound_Loop::m_ChnToCnk.erase(channel);
+		Mix_PlayChannel(channel,TwoPartsLoopingMusic::m_ChnToCnk[channel],-1);
+		TwoPartsLoopingMusic::m_ChnToCnk.erase(channel);
 	};
 }
 
@@ -59,7 +59,7 @@ bool Sound::Load(const std::string& file)
 	else return true;
 }
 
-void Sound_Loop::Free()
+void TwoPartsLoopingMusic::Free()
 {
     Stop();
     Sound::Free();
@@ -71,18 +71,18 @@ void Sound_Loop::Free()
 	m_loopFile.Free();
 }
 
-Sound_Loop::Sound_Loop()
+TwoPartsLoopingMusic::TwoPartsLoopingMusic()
 {
 	m_pCnk_loop = nullptr;
 }
 
-Sound_Loop::~Sound_Loop()
+TwoPartsLoopingMusic::~TwoPartsLoopingMusic()
 {
 	Free();
 	m_ChnToCnk.erase(m_channel);
 }
 
-bool Sound_Loop::Load(const std::string& _headfile,const std::string& _loopFile)
+bool TwoPartsLoopingMusic::Load(const std::string& _headfile,const std::string& _loopFile)
 {
 	m_loopFile.Load(_loopFile);
 	m_pCnk_loop = Mix_LoadWAV_RW((SDL_RWops*)m_loopFile,m_loopFile.Size());
@@ -115,13 +115,13 @@ void Sound::Pause()
 	Mix_Pause(m_channel);
 }
 
-void Sound_Loop::Play_Loop(const int _fadetime)
+void TwoPartsLoopingMusic::Play_Loop(const int _fadetime)
 {
 	if (_fadetime <= 0) Mix_PlayChannel(m_channel,m_pCnk_loop,0);
 	else Mix_FadeInChannel(m_channel,m_pCnk_loop,-1,_fadetime);
 }
 
-void Sound_Loop::Play(const int _fadetime)
+void TwoPartsLoopingMusic::Play(const int _fadetime)
 {
 	if (Sound::m_pCnk == nullptr) Play_Loop(_fadetime);
 	Sound::Play(_fadetime);
@@ -141,7 +141,7 @@ void Sound::Stop(const int _fadetime)
     }
 }
 
-void Sound_Loop::Stop(const int _fadetime)
+void TwoPartsLoopingMusic::Stop(const int _fadetime)
 {
 	Sound::Stop(_fadetime);
 	m_ChnToCnk.erase(m_channel);
@@ -169,7 +169,7 @@ bool Sound::Playing()
 //		File f1("00.ogg");
 //		File f2("01.ogg");
 //		{
-//			Sound_Loop snd;
+//			TwoPartsLoopingMusic snd;
 //			snd.Load(f1.Get(),f1.Size(),f2.Get(),f2.Size());
 //			cout<<Mix_GetError();
 //			snd.Play(-1);

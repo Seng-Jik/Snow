@@ -3,7 +3,7 @@
 #include "Core/Misc.h"
 #include "Core/SDLbase.h"
 using namespace std;
-using namespace Core;
+using namespace Snow;
 
 size_t CSVEditor::Width()
 {

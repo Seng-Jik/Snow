@@ -11,7 +11,7 @@
 当操作时，如果鼠标、触摸在当前控件焦掉框中
 则调用Proc函数响应基本操作，然后再调用活动中的Proc函数进一步操作。
 */
-namespace Core{
+namespace Snow{
     class Activity;
     class Control   //控件基类
     {

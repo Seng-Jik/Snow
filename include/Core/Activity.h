@@ -6,14 +6,14 @@
 #include "RndPtr.h"
 #include <stack>
 
-namespace Core{
+namespace Snow{
     class Activity;
     class Control;
     class Animation;
 
     class Activity
     {
-    friend void CoreRun(Activity* start);
+    friend void Run(Activity* start);
     friend class RndPtr;
     private:
         std::forward_list<Control*> m_ansList;
@@ -26,7 +26,7 @@ namespace Core{
         {m_logic_h = h;m_logic_w = w;}
         //设置屏幕逻辑大小
     public:
-        Activity(){m_logic_h = Core::pRnd.GetPhH();m_logic_w = Core::pRnd.GetPhW();}
+        Activity(){m_logic_h = Snow::pRnd.GetPhH();m_logic_w = Snow::pRnd.GetPhW();}
         virtual ~Activity(){};
         virtual void OnShow(){};    //当Goto到这个活动时执行
         virtual void OnHide(){};    //当Goto出这个活动时执行

@@ -5,7 +5,7 @@
 #include <vector>
 #include <string>
 
-namespace Core{
+namespace Snow{
 
 class ResFileReader{
 public:
@@ -26,7 +26,7 @@ public:
 
     ~ResFile();
 
-    void Load(std::string);  //加载文件，不需要考虑是否释放，自动释放
+    bool Load(std::string);  //加载文件，不需要考虑是否释放，自动释放
     void Free();    //释放当前文件
     Uint32 Size() const;    //取大小
     bool Success() const;

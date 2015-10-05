@@ -4,7 +4,7 @@
 #include "SDLbase.h"
 #include "ResFile.h"
 struct SDL_Rect;
-namespace Core
+namespace Snow
 {
     void DrawTextOutLine(SDL_Surface*); //字体描边
     void GetString(std::ifstream&,std::string&);    //从二进制文件流中取出一个字符串，遇到\0结尾

@@ -1,7 +1,7 @@
 #include "SDLBase.h"
 #include <string>
 
-namespace Core{
+namespace Snow{
 
 class TCPServer;
 

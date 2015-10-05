@@ -1,7 +1,7 @@
 #pragma once
 #include "ResFile.h"
 
-namespace Core{
+namespace Snow{
 
 class Surface{
 private:

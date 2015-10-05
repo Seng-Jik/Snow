@@ -1,7 +1,7 @@
 
 #include "Core.h"
 using namespace std;
-using namespace Core;
+using namespace Snow;
 
 string ResVal::Trim(const std::string& s)
 {
@@ -86,20 +86,23 @@ void ResVal::Load(const std::string& f)
 const string & ResVal::Str(std::string s)
 {
     UpperCase(s);
-    if(m_strs.count(s) == 0) Error(0x30001010,"Can't find str in ResVal:" + s);
+    if(m_strs.count(s) == 0){
+        string s;
+        return s;
+    };
     return m_strs[s];
 }
 
 float ResVal::Float(std::string s)
 {
     UpperCase(s);
-    if(m_flts.count(s) == 0) Error(0x30001010,"Can't find float in ResVal:" + s);
+    if(m_flts.count(s) == 0) return 0;
     return m_flts[s];
 }
 
 Sint32 ResVal::Int(std::string s)
 {
     UpperCase(s);
-    if(m_ints.count(s) == 0) Error(0x30001010,"Can't find int in ResVal:" + s);
+    if(m_ints.count(s) == 0) return 0;
     return m_ints[s];
 }

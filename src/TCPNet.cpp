@@ -1,5 +1,5 @@
 #include "Core/TCPNet.h"
-using namespace Core;
+using namespace Snow;
 
 bool TCPConnection::ConnectToServer(const std::string host,Uint16 port){
 	if(SDLNet_ResolveHost(&m_ip,host.c_str(),port) == -1){
