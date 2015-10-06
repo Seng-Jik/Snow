@@ -1,6 +1,6 @@
-#include "Core/UDPNet.h"
+#include "Snow/UDPNet.h"
 
-using namespace Core;
+using namespace Snow;
 
 bool UDPSocket::Open(Uint16 port)
 {

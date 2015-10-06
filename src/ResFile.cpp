@@ -1,12 +1,13 @@
-#include "Core/ResFile.h"
-#include "Core/Error.h"
+#include "Snow/ResFile.h"
+//#include "Snow/Error.h"
 #include <fstream>
+#include "Snow/Debug.h"
 
-using namespace Core;
+using namespace Snow;
 using namespace std;
 
-LocalFileReader Core::ResFile::m_localLoader;
-std::vector<ResFileReader*> Core::ResFile::m_readers;
+LocalFileReader Snow::ResFile::m_localLoader;
+std::vector<ResFileReader*> Snow::ResFile::m_readers;
 
 void ResFile::fixPath(string& path)
 {
@@ -29,7 +30,7 @@ char* LocalFileReader::GetFile(const string& f,Uint32& size)
     try{
         mem = new char[size];
     }catch(bad_alloc){
-        throw Error(0x30000001,"Can't open local file " + f +".");
+        return nullptr;
     }
 
     in.read(mem,size);
@@ -52,7 +53,7 @@ ResFile::~ResFile()
     Free();
 }
 
-void ResFile::Load(std::string f)
+bool ResFile::Load(std::string f)
 {
     fixPath(f);
     Uint32 size;
@@ -60,18 +61,19 @@ void ResFile::Load(std::string f)
     if(mem != nullptr){
         m_mem = mem;
         m_size = size;
-        return;
+        return true;
     }else{
         for(auto p = m_readers.begin();p != m_readers.end();++p){
             mem = (*p) -> GetFile(f,size);
             if(mem != nullptr){
                 m_mem = mem;
                 m_size =  size;
-                return;
+                return true;
             }
         }
     }
-    throw Error(0x30000001,"Can't open file " + f +".");
+    PNT(string("Snow::ResFile::Load:Can't Open ResFile ")+f);
+    return false;
 }
 
 void ResFile::Free()

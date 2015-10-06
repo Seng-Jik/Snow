@@ -1,9 +1,8 @@
-#ifndef _HEAD_CSVREADER_HEAD_
-#define _HEAD_CSVREADER_HEAD_
+#pragma once
 #include "ResFile.h"
 #include <string>
 
-namespace Core{
+namespace Snow{
 class CSVReader
 {
     public:
@@ -16,10 +15,9 @@ class CSVReader
         bool NextLine();
     protected:
     private:
-        Core::ResFile m_file;
+        Snow::ResFile m_file;
         Uint32 m_ptr;
         std::string m_nowLine;
 };
 }
 
-#endif // _HEAD_CSVREADER_HEAD_

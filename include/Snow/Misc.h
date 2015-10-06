@@ -1,10 +1,9 @@
-#ifndef _HEAD_MISC_
-#define _HEAD_MISC_
+#pragma once
 #include <fstream>
 #include "SDLbase.h"
 #include "ResFile.h"
 struct SDL_Rect;
-namespace Core
+namespace Snow
 {
     void DrawTextOutLine(SDL_Surface*); //字体描边
     void GetString(std::ifstream&,std::string&);    //从二进制文件流中取出一个字符串，遇到\0结尾
@@ -28,9 +27,7 @@ namespace Core
             //A和B也是有效值，A为三分之一，B为三分之二
 
     bool InRect(const SDL_Rect&,int x,int y);
-    Uint32 Time2Fps(Uint32 ms);
-    void FastBlurARGB8888(SDL_Surface* pOrg,int radius);    //快速模糊
+    Uint32 Time2Frame(Uint32 ms);
+    void FastBlurARGB8888(SDL_Surface* pOrg,int radius);    //快速堆栈模糊，算法来自Mario先生。
 }
 
-
-#endif

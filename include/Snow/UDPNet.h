@@ -1,6 +1,7 @@
+#pragma once
 #include <string>
 #include "SDLbase.h"
-namespace Core{
+namespace Snow{
 
 class UDPPacket;
 class UDPSocket

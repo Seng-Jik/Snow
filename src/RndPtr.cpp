@@ -1,11 +1,11 @@
-#include "Core/RndPtr.h"
-#include "Core/Activity.h"
+#include "Snow/RndPtr.h"
+#include "Snow/Activity.h"
 #include <stack>
 
-using namespace Core;
+using namespace Snow;
 using namespace std;
 
-namespace Core{
+namespace Snow{
     RndPtr pRnd;
     Activity* nowFocus;
     Activity* nextFocus;

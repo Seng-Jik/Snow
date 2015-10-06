@@ -1,17 +1,15 @@
-#ifndef _HEAD_SOUND_
-#define _HEAD_SOUND_
-
+#pragma once
 #include "SDLbase.h"
 #include <map>
 #include "ResFile.h"
 
 /* 声音类 ，一个声音类代表一个通道，可以同时播放。 */
-namespace Core{
+namespace Snow{
 
     class Sound
     {
     private:
-        Core::ResFile m_file;
+        Snow::ResFile m_file;
         static unsigned int m_channelCount;
     protected:
         int m_channel;
@@ -33,18 +31,18 @@ namespace Core{
     };
 
     void Sound_CallBack(const int channel);
-    class Sound_Loop:public Sound	//有循环点循环声音类，由两个文件组成，头部音乐和循环部分音乐
+    class TwoPartsLoopingMusic:public Sound	//有循环点循环声音类，由两个文件组成，头部音乐和循环部分音乐
     {
-    friend void Core::Sound_CallBack(const int channel);
+    friend void Snow::Sound_CallBack(const int channel);
     private:
         Mix_Chunk* m_pCnk_loop;
-        Core::ResFile m_loopFile;
+        Snow::ResFile m_loopFile;
         static std::map<int,Mix_Chunk*> m_ChnToCnk;	//频道对循环文件关系
     protected:
         void Free();
     public:
-        Sound_Loop();
-        ~Sound_Loop();
+        TwoPartsLoopingMusic();
+        ~TwoPartsLoopingMusic();
         bool Load(const std::string&,const std::string&);
         void Play(const int _fadetime = 0);
         void Play_Loop(const int _fadetime = 0);
@@ -53,4 +51,3 @@ namespace Core{
 
 }
 
-#endif // _HEAD_SOUND_

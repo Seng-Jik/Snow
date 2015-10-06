@@ -1,12 +1,11 @@
-#ifndef _HEAD_BUNDLE_
-#define _HEAD_BUNDLE_
+#pragma once
 #include "Globals.h"
 #include <fstream>
 #include "mem.h"
 
 /* 序列化数据包 */
 /* 警告！写入或读入超过数据包长度的数据程序会直接崩溃！*/
-namespace Core{
+namespace Snow{
     template <Uint32 size>    //传入大小
     class Bundle{
     private:
@@ -47,34 +46,34 @@ namespace Core{
 #ifdef _HEAD_BUNDLE_
 
 template<Uint32 size>
-Core::Bundle<size>::Bundle()
+Snow::Bundle<size>::Bundle()
 {
     m_data = new Uint8[size];
     ResetPtr();
 }
 
 template<Uint32 size>
-Core::Bundle<size>::~Bundle()
+Snow::Bundle<size>::~Bundle()
 {
     delete m_data;
 }
 
 template<Uint32 size>
-void Core::Bundle<size>::ResetPtr()
+void Snow::Bundle<size>::ResetPtr()
 {
     m_wptr = 0;
     m_rptr = 0;
 }
 
 template<Uint32 size>
-template <typename type> void Core::Bundle<size>::Write(const type& data)
+template <typename type> void Snow::Bundle<size>::Write(const type& data)
 {
     memcpy(&m_data[m_wptr],&data,sizeof(type));
     m_wptr += sizeof(type);
 }
 
 template<Uint32 size>
-template <typename type> void Core::Bundle<size>::Read(type& data)
+template <typename type> void Snow::Bundle<size>::Read(type& data)
 {
     //data = *(type*)(&m_data[m_rptr]);
     memcpy(&data,&m_data[m_rptr],sizeof(type));
@@ -82,7 +81,7 @@ template <typename type> void Core::Bundle<size>::Read(type& data)
 }
 
 template<Uint32 size>
-void Core::Bundle<size>::WriteStr(const std::string& data)
+void Snow::Bundle<size>::WriteStr(const std::string& data)
 {
     Uint16 len = data.length();
     Write<Uint16>(len);
@@ -94,7 +93,7 @@ void Core::Bundle<size>::WriteStr(const std::string& data)
 }
 
 template<Uint32 size>
-void Core::Bundle<size>::ReadStr(std::string& data)
+void Snow::Bundle<size>::ReadStr(std::string& data)
 {
     Uint16 len;
     Read<Uint16>(len);
@@ -107,7 +106,7 @@ void Core::Bundle<size>::ReadStr(std::string& data)
 }
 
 template<Uint32 size>
-void Core::Bundle<size>::WriteToFile(std::ofstream& out,Uint64 pos)
+void Snow::Bundle<size>::WriteToFile(std::ofstream& out,Uint64 pos)
 {
     Uint64 p = out.tellp();
     out.seekp(pos);
@@ -116,7 +115,7 @@ void Core::Bundle<size>::WriteToFile(std::ofstream& out,Uint64 pos)
 }
 
 template<Uint32 size>
-void Core::Bundle<size>::ReadFromFile(std::ifstream& in,Uint64 pos)
+void Snow::Bundle<size>::ReadFromFile(std::ifstream& in,Uint64 pos)
 {
     Uint64 p = in.tellg();
     in.seekg(pos);
@@ -125,7 +124,7 @@ void Core::Bundle<size>::ReadFromFile(std::ifstream& in,Uint64 pos)
 }
 
 template<Uint32 size>
-void Core::Bundle<size>::WriteToFile(std::fstream& out,Uint64 pos)
+void Snow::Bundle<size>::WriteToFile(std::fstream& out,Uint64 pos)
 {
     Uint64 p = out.tellp();
     out.seekp(pos);
@@ -134,7 +133,7 @@ void Core::Bundle<size>::WriteToFile(std::fstream& out,Uint64 pos)
 }
 
 template<Uint32 size>
-void Core::Bundle<size>::ReadFromFile(std::fstream& in,Uint64 pos)
+void Snow::Bundle<size>::ReadFromFile(std::fstream& in,Uint64 pos)
 {
     Uint64 p = in.tellg();
     in.seekg(pos);
@@ -143,4 +142,3 @@ void Core::Bundle<size>::ReadFromFile(std::fstream& in,Uint64 pos)
 }
 #endif
 
-#endif // _HEAD_BUNDLE_

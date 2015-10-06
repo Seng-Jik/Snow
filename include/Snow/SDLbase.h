@@ -1,5 +1,4 @@
-#ifndef _HEAD_SDLBASE_
-#define _HEAD_SDLBASE_
+#pragma once
 #include "OS.h"
 #ifdef _PLATFORM_C4DROID
 #include <SDL2/SDL.h>
@@ -20,4 +19,4 @@
 #include <SDL_test.h>
 #endif
 
-#endif // _HEAD_SDLBASE_
+

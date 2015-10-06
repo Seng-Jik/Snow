@@ -1,12 +1,11 @@
-#ifndef _HEAD_FONT_
-#define _HEAD_FONT_
+#pragma once
 
 #include "SDLbase.h"
 #include <string>
 #include "ResFile.h"
 
 /* 字体类，你只需要创建其对象加载字体即可 */
-namespace Core
+namespace Snow
 {
     class Font
     {
@@ -33,4 +32,3 @@ namespace Core
     };
 }
 
-#endif // _HEAD_FONT_

@@ -1,11 +1,9 @@
-#ifndef _HEAD_THREAD_
-#define _HEAD_THREAD_
-//线程类
+#pragma once
 //线程函数原型
 //void func(Thread*);
 
 #include "SDLbase.h"
-namespace Core
+namespace Snow
 {
     typedef void* THREAD_ID;
     class Thread;
@@ -74,4 +72,4 @@ namespace Core
         volatile void* GetData();    //取得数据，如果没有要取得数据则等待一个数据被发出
     };
 }
-#endif // _HEAD_THREAD_
+

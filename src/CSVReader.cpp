@@ -1,11 +1,11 @@
-#include "Core/CSVReader.h"
-#include "Core/Misc.h"
-#include "Core/Debug.h"
+#include "Snow/CSVReader.h"
+#include "Snow/Misc.h"
+#include "Snow/Debug.h"
 #include <cstdlib>
 #include <cstdio>
 
 using namespace std;
-using namespace Core;
+using namespace Snow;
 
 bool CSVReader::LoadCSV(const std::string& f)
 {

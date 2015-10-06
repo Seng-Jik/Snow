@@ -1,6 +1,4 @@
-#ifndef _HEAD_GLOBALS_HEAD_
-#define _HEAD_GLOBALS_HEAD_
-
+#pragma once
 #define FPS 60
 
 #define FOR_EACH(val,begin,end) for(auto val = begin;val != end;++val)
@@ -9,10 +7,10 @@
 #include <string>
 #include "Sound.h"
 
-namespace Core{
+namespace Snow{
     class Activity;
     void Init();    //初始化
-    void CoreRun(Activity* start);  //框架执行
+    void Run(Activity* start);  //框架执行
     //初始化活动的代码块的最后一行调用此函数，传入第一个执行的活动即可
 
     void Goto(Activity*);   //跳转活动
@@ -23,7 +21,3 @@ namespace Core{
 }
 
 typedef unsigned char BYTE;
-
-
-#include "OS.h"
-#endif

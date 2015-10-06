@@ -1,7 +1,7 @@
-#include "Core/Debug.h"
-#include "Core/Surface.h"
+#include "Snow/Debug.h"
+#include "Snow/Surface.h"
 
-using namespace Core;
+using namespace Snow;
 
 Surface::Surface(){}
 

@@ -1,6 +1,4 @@
-#ifndef _HEAD_CORE_CSVEditor_HEAD_
-#define _HEAD_CORE_CSVEditor_HEAD_
-
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -12,7 +10,7 @@
 
 typedef std::pair<size_t, size_t> position;
 
-namespace Core{
+namespace Snow{
 
 	class CSVEditor
 	{
@@ -61,5 +59,4 @@ namespace Core{
 
 }
 
-#endif
 

@@ -1,9 +1,9 @@
-#include "Core/CSVEditor.h"
-#include "Core/ResFile.h"
-#include "Core/Misc.h"
-#include "Core/SDLbase.h"
+#include "Snow/CSVEditor.h"
+#include "Snow/ResFile.h"
+#include "Snow/Misc.h"
+#include "Snow/SDLbase.h"
 using namespace std;
-using namespace Core;
+using namespace Snow;
 
 size_t CSVEditor::Width()
 {

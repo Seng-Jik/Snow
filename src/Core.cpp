@@ -1,18 +1,18 @@
-#include "Core/Activity.h"
-#include "Core/Timer.h"
-#include "Core/Sound.h"
-#include "Core/Globals.h"
-#include "Core/Control.h"
-#include "Core/Debug.h"
+#include "Snow/Activity.h"
+#include "Snow/Timer.h"
+#include "Snow/Sound.h"
+#include "Snow/Globals.h"
+#include "Snow/Control.h"
+#include "Snow/Debug.h"
 #include <stack>
 #include <cstdlib>
 
-using namespace Core;
+using namespace Snow;
 using namespace std;
 
 
 
-namespace Core{
+namespace Snow{
 
 extern Activity* nowFocus;
 extern Activity* nextFocus;
@@ -93,7 +93,7 @@ void Exit(int exitcode)
     }
 }
 
-void CoreRun(Activity* start)
+void Run(Activity* start)
 {
     SDL_SetRenderDrawBlendMode(pRnd,SDL_BLENDMODE_BLEND);
 
@@ -216,10 +216,10 @@ void Init(){
     TTF_Init();
     SDLNet_Init();
 
-    Core::Sound::Init();
+    Snow::Sound::Init();
 
-    Core::nowFocus = nullptr;
-    Core::nextFocus = nullptr;
+    Snow::nowFocus = nullptr;
+    Snow::nextFocus = nullptr;
 }
 
 }
