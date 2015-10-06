@@ -44,14 +44,9 @@ OBJ_DEBUG = $(OBJDIR_DEBUG)\\src\\Bundle.o $(OBJDIR_DEBUG)\\src\\CSVEditor.o $(O
 
 OBJ_RELEASE = $(OBJDIR_RELEASE)\\src\\Bundle.o $(OBJDIR_RELEASE)\\src\\CSVEditor.o $(OBJDIR_RELEASE)\\src\\CSVReader.o $(OBJDIR_RELEASE)\\src\\Core.o $(OBJDIR_RELEASE)\\src\\Font.o $(OBJDIR_RELEASE)\\src\\Misc.o $(OBJDIR_RELEASE)\\src\\RenderTarget.o $(OBJDIR_RELEASE)\\src\\ResFile.o $(OBJDIR_RELEASE)\\src\\ResVal.o $(OBJDIR_RELEASE)\\src\\RndPtr.o $(OBJDIR_RELEASE)\\src\\Sound.o $(OBJDIR_RELEASE)\\src\\Sprite.o $(OBJDIR_RELEASE)\\src\\Surface.o $(OBJDIR_RELEASE)\\src\\TCPNet.o $(OBJDIR_RELEASE)\\src\\Thread.o $(OBJDIR_RELEASE)\\src\\UDPNet.o
 
-all: before_build build_debug build_release after_build
+all: debug release
 
 clean: clean_debug clean_release
-
-before_build: 
-
-after_build: 
-	XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y
 
 before_debug: 
 	cmd /c if not exist bin\\Debug md bin\\Debug
@@ -59,9 +54,7 @@ before_debug:
 
 after_debug: 
 
-build_debug: before_debug out_debug after_debug
-
-debug: before_build build_debug after_build
+debug: before_debug out_debug after_debug
 
 out_debug: before_debug $(OBJ_DEBUG) $(DEP_DEBUG)
 	$(LD) -shared $(LIBDIR_DEBUG) $(OBJ_DEBUG)  -o $(OUT_DEBUG) $(LDFLAGS_DEBUG) $(LIB_DEBUG)
@@ -125,9 +118,7 @@ before_release:
 
 after_release: 
 
-build_release: before_release out_release after_release
-
-release: before_build build_release after_build
+release: before_release out_release after_release
 
 out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(LD) -shared $(LIBDIR_RELEASE) $(OBJ_RELEASE)  -o $(OUT_RELEASE) $(LDFLAGS_RELEASE) $(LIB_RELEASE)
@@ -185,5 +176,5 @@ clean_release:
 	cmd /c rd bin\\Release
 	cmd /c rd $(OBJDIR_RELEASE)\\src
 
-.PHONY: before_build after_build before_debug after_debug clean_debug before_release after_release clean_release
+.PHONY: before_debug after_debug clean_debug before_release after_release clean_release
 
