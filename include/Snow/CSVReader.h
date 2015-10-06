@@ -1,5 +1,4 @@
-#ifndef _HEAD_CSVREADER_HEAD_
-#define _HEAD_CSVREADER_HEAD_
+#pragma once
 #include "ResFile.h"
 #include <string>
 
@@ -22,4 +21,3 @@ class CSVReader
 };
 }
 
-#endif // _HEAD_CSVREADER_HEAD_

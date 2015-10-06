@@ -1,8 +1,8 @@
-#include "Core/Misc.h"
-#include "Core/SDLbase.h"
-#include "Core/Activity.h"
-#include "Core/Globals.h"
-#include "Core/RndPtr.h"
+#include "Snow/Misc.h"
+#include "Snow/SDLbase.h"
+#include "Snow/Activity.h"
+#include "Snow/Globals.h"
+#include "Snow/RndPtr.h"
 
 #include <set>
 #include <stack>
@@ -75,7 +75,7 @@ string Snow::GetLine(ResFile& r,Uint32& pos){
     return Line;
 }
 
-Uint32 Snow::Time2Fps(unsigned int ms){
+Uint32 Snow::Time2Frame(unsigned int ms){
     return Uint32(float(ms) / 1000 * FPS);
 }
 

@@ -1,5 +1,4 @@
-#ifndef _HEAD_FONT_
-#define _HEAD_FONT_
+#pragma once
 
 #include "SDLbase.h"
 #include <string>
@@ -33,4 +32,3 @@ namespace Snow
     };
 }
 
-#endif // _HEAD_FONT_

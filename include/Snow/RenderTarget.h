@@ -1,5 +1,4 @@
-#ifndef _HEAD_RENDERTARGER_HEAD_
-#define _HEAD_RENDERTARGER_HEAD_
+#pragma once
 #include "Thread.h"
 namespace Snow{
 class RenderTarget  //你可以把本应绘制到屏幕缓存的数据绘制到这个类的对象里
@@ -39,7 +38,7 @@ class SoftLinkTarget{ //你可以绑定其他的软件渲染器到本类对象�
         void SetDrawPos(int x,int y,int w,int h);  //设置绘制到屏幕上时用到的位置
         void SetDrawArea(int x,int y,int w,int h);  //设置绘制到屏幕上时剪裁的部分
 
-        operator SDL_Texture* ();   //获取纹理以自定义绘制到屏幕上的方式，请不要用Snow::Sprite管理它，或者销毁它
+        operator SDL_Texture* ();   //获取纹理以自定义绘制到屏幕上的方式，请不要用Snow::Sprite管理它，或者使用SDL API销毁它
     private:
         SDL_Rect m_drawArea,m_drawPos;
         void* m_frameBuf;
@@ -49,4 +48,3 @@ class SoftLinkTarget{ //你可以绑定其他的软件渲染器到本类对象�
 };
 }
 
-#endif // _HEAD_RENDERTARGER_HEAD_

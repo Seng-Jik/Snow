@@ -1,9 +1,9 @@
-#include "Core/Activity.h"
-#include "Core/Timer.h"
-#include "Core/Sound.h"
-#include "Core/Globals.h"
-#include "Core/Control.h"
-#include "Core/Debug.h"
+#include "Snow/Activity.h"
+#include "Snow/Timer.h"
+#include "Snow/Sound.h"
+#include "Snow/Globals.h"
+#include "Snow/Control.h"
+#include "Snow/Debug.h"
 #include <stack>
 #include <cstdlib>
 

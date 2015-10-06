@@ -1,5 +1,4 @@
-#ifndef _HEAD_RESVAL_
-#define _HEAD_RESVAL_
+#pragma once
 #include <map>
 
 namespace Snow{
@@ -7,7 +6,7 @@ namespace Snow{
 class ResVal
 {
     public:
-        void Load(const std::string&);
+        bool Load(const std::string&);
         Sint32 Int(std::string);
         float Float(std::string);
         const std::string& Str(std::string);
@@ -17,8 +16,8 @@ class ResVal
         std::map<std::string,std::string> m_strs;
 
         std::string Trim(const std::string& s);
+        const std::string m_nullstr;
 
 };
 
 }
-#endif // _HEAD_RESVAL_

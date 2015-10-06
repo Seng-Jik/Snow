@@ -1,3 +1,4 @@
+#pragma once
 #include "SDLBase.h"
 #include <string>
 

@@ -1,10 +1,10 @@
-#include "Core/Globals.h"
-#include "Core/Sprite.h"
-#include "Core/Font.h"
+#include "Snow/Globals.h"
+#include "Snow/Sprite.h"
+#include "Snow/Font.h"
 #include <string>
-#include "Core/Misc.h"
-#include "Core/Debug.h"
-#include "Core/RndPtr.h"
+#include "Snow/Misc.h"
+#include "Snow/Debug.h"
+#include "Snow/RndPtr.h"
 using namespace std;
 using namespace Snow;
 

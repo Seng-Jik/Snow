@@ -1,6 +1,4 @@
-#ifndef _HEAD_SOUND_
-#define _HEAD_SOUND_
-
+#pragma once
 #include "SDLbase.h"
 #include <map>
 #include "ResFile.h"
@@ -53,4 +51,3 @@ namespace Snow{
 
 }
 
-#endif // _HEAD_SOUND_

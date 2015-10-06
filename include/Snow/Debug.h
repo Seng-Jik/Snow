@@ -1,8 +1,6 @@
-
+#pragma once
 #ifdef _DEBUG
 
-#ifndef _HEAD_DEBUG_
-#define _HEAD_DEBUG_
 #include <iostream>
 #include <string>
 #define PNT(s) std::cout<<s<<std::endl;
@@ -21,13 +19,12 @@ public:
 #define DBGCLASS_SETDBGINFO(s,t) (s).dbg_info = t;
 #define DBGCLASS_PNTDBGINFO(s) cout<<s.dbg_info;
 
-#endif // _HEAD_DEBUG_
-
 #else
+
 #define PNT(s)
 #define DBGCLASS
 #define FDBGCLASS
 #define DBGCLASS_SETDBGINFO(s,t)
 #define DBGCLASS_PNTDBGINFO(s)
 
-#endif // _DEBUG
+#endif

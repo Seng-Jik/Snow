@@ -4,7 +4,6 @@
 #include "SDLbase.h"
 #include "Globals.h"
 #include "RndPtr.h"
-#include <stack>
 
 namespace Snow{
     class Activity;

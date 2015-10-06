@@ -1,6 +1,4 @@
-#ifndef _HEAD_TIMER_
-#define _HEAD_TIMER_
-#include "../Core/Debug.h"
+#pragma once
 
 /***** 计时器 *****
 * 类似NS的那种方法。
@@ -33,13 +31,13 @@ namespace Snow
          Uint32 m_tck;
     public:
         inline FrameTimer(){
-            m_tck = pRnd.GetFpsCount();
+            m_tck = pRnd.GetFrameCount();
         }
         inline void Reset(){
-            m_tck = pRnd.GetFpsCount();
+            m_tck = pRnd.GetFrameCount();
         }
         inline Uint32 GetTimer(){
-            return pRnd.GetFpsCount() - m_tck;
+            return pRnd.GetFrameCount() - m_tck;
         }
         inline operator Uint32 (){
             return GetTimer();
@@ -73,7 +71,3 @@ namespace Snow
     }
 }
 
-
-
-
-#endif // _HEAD_TIMER_

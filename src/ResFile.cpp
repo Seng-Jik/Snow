@@ -1,6 +1,7 @@
-#include "Core/ResFile.h"
-//#include "Core/Error.h"
+#include "Snow/ResFile.h"
+//#include "Snow/Error.h"
 #include <fstream>
+#include "Snow/Debug.h"
 
 using namespace Snow;
 using namespace std;
@@ -71,6 +72,7 @@ bool ResFile::Load(std::string f)
             }
         }
     }
+    PNT(string("Snow::ResFile::Load:Can't Open ResFile ")+f);
     return false;
 }
 

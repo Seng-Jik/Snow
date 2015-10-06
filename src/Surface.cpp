@@ -1,5 +1,5 @@
-#include "Core/Debug.h"
-#include "Core/Surface.h"
+#include "Snow/Debug.h"
+#include "Snow/Surface.h"
 
 using namespace Snow;
 

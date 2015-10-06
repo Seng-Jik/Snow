@@ -40,9 +40,9 @@ OBJDIR_RELEASE = bin\\Release\\obj
 DEP_RELEASE = 
 OUT_RELEASE = bin\\Release\\Snow.dll
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)\\src\\Bundle.o $(OBJDIR_DEBUG)\\src\\CSVEditor.o $(OBJDIR_DEBUG)\\src\\CSVReader.o $(OBJDIR_DEBUG)\\src\\CoreMain.o $(OBJDIR_DEBUG)\\src\\Error.o $(OBJDIR_DEBUG)\\src\\Font.o $(OBJDIR_DEBUG)\\src\\Misc.o $(OBJDIR_DEBUG)\\src\\RenderTarget.o $(OBJDIR_DEBUG)\\src\\ResFile.o $(OBJDIR_DEBUG)\\src\\ResVal.o $(OBJDIR_DEBUG)\\src\\RndPtr.o $(OBJDIR_DEBUG)\\src\\Sound.o $(OBJDIR_DEBUG)\\src\\Surface.o $(OBJDIR_DEBUG)\\src\\TCPNet.o $(OBJDIR_DEBUG)\\src\\Texture.o $(OBJDIR_DEBUG)\\src\\Thread.o $(OBJDIR_DEBUG)\\src\\UDPNet.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)\\src\\Bundle.o $(OBJDIR_DEBUG)\\src\\CSVEditor.o $(OBJDIR_DEBUG)\\src\\CSVReader.o $(OBJDIR_DEBUG)\\src\\Core.o $(OBJDIR_DEBUG)\\src\\Font.o $(OBJDIR_DEBUG)\\src\\Misc.o $(OBJDIR_DEBUG)\\src\\RenderTarget.o $(OBJDIR_DEBUG)\\src\\ResFile.o $(OBJDIR_DEBUG)\\src\\ResVal.o $(OBJDIR_DEBUG)\\src\\RndPtr.o $(OBJDIR_DEBUG)\\src\\Sound.o $(OBJDIR_DEBUG)\\src\\Sprite.o $(OBJDIR_DEBUG)\\src\\Surface.o $(OBJDIR_DEBUG)\\src\\TCPNet.o $(OBJDIR_DEBUG)\\src\\Thread.o $(OBJDIR_DEBUG)\\src\\UDPNet.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)\\src\\Bundle.o $(OBJDIR_RELEASE)\\src\\CSVEditor.o $(OBJDIR_RELEASE)\\src\\CSVReader.o $(OBJDIR_RELEASE)\\src\\CoreMain.o $(OBJDIR_RELEASE)\\src\\Error.o $(OBJDIR_RELEASE)\\src\\Font.o $(OBJDIR_RELEASE)\\src\\Misc.o $(OBJDIR_RELEASE)\\src\\RenderTarget.o $(OBJDIR_RELEASE)\\src\\ResFile.o $(OBJDIR_RELEASE)\\src\\ResVal.o $(OBJDIR_RELEASE)\\src\\RndPtr.o $(OBJDIR_RELEASE)\\src\\Sound.o $(OBJDIR_RELEASE)\\src\\Surface.o $(OBJDIR_RELEASE)\\src\\TCPNet.o $(OBJDIR_RELEASE)\\src\\Texture.o $(OBJDIR_RELEASE)\\src\\Thread.o $(OBJDIR_RELEASE)\\src\\UDPNet.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)\\src\\Bundle.o $(OBJDIR_RELEASE)\\src\\CSVEditor.o $(OBJDIR_RELEASE)\\src\\CSVReader.o $(OBJDIR_RELEASE)\\src\\Core.o $(OBJDIR_RELEASE)\\src\\Font.o $(OBJDIR_RELEASE)\\src\\Misc.o $(OBJDIR_RELEASE)\\src\\RenderTarget.o $(OBJDIR_RELEASE)\\src\\ResFile.o $(OBJDIR_RELEASE)\\src\\ResVal.o $(OBJDIR_RELEASE)\\src\\RndPtr.o $(OBJDIR_RELEASE)\\src\\Sound.o $(OBJDIR_RELEASE)\\src\\Sprite.o $(OBJDIR_RELEASE)\\src\\Surface.o $(OBJDIR_RELEASE)\\src\\TCPNet.o $(OBJDIR_RELEASE)\\src\\Thread.o $(OBJDIR_RELEASE)\\src\\UDPNet.o
 
 all: before_build build_debug build_release after_build
 
@@ -75,11 +75,8 @@ $(OBJDIR_DEBUG)\\src\\CSVEditor.o: src\\CSVEditor.cpp
 $(OBJDIR_DEBUG)\\src\\CSVReader.o: src\\CSVReader.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\CSVReader.cpp -o $(OBJDIR_DEBUG)\\src\\CSVReader.o
 
-$(OBJDIR_DEBUG)\\src\\CoreMain.o: src\\CoreMain.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\CoreMain.cpp -o $(OBJDIR_DEBUG)\\src\\CoreMain.o
-
-$(OBJDIR_DEBUG)\\src\\Error.o: src\\Error.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Error.cpp -o $(OBJDIR_DEBUG)\\src\\Error.o
+$(OBJDIR_DEBUG)\\src\\Core.o: src\\Core.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Core.cpp -o $(OBJDIR_DEBUG)\\src\\Core.o
 
 $(OBJDIR_DEBUG)\\src\\Font.o: src\\Font.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Font.cpp -o $(OBJDIR_DEBUG)\\src\\Font.o
@@ -102,14 +99,14 @@ $(OBJDIR_DEBUG)\\src\\RndPtr.o: src\\RndPtr.cpp
 $(OBJDIR_DEBUG)\\src\\Sound.o: src\\Sound.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Sound.cpp -o $(OBJDIR_DEBUG)\\src\\Sound.o
 
+$(OBJDIR_DEBUG)\\src\\Sprite.o: src\\Sprite.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Sprite.cpp -o $(OBJDIR_DEBUG)\\src\\Sprite.o
+
 $(OBJDIR_DEBUG)\\src\\Surface.o: src\\Surface.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Surface.cpp -o $(OBJDIR_DEBUG)\\src\\Surface.o
 
 $(OBJDIR_DEBUG)\\src\\TCPNet.o: src\\TCPNet.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\TCPNet.cpp -o $(OBJDIR_DEBUG)\\src\\TCPNet.o
-
-$(OBJDIR_DEBUG)\\src\\Texture.o: src\\Texture.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Texture.cpp -o $(OBJDIR_DEBUG)\\src\\Texture.o
 
 $(OBJDIR_DEBUG)\\src\\Thread.o: src\\Thread.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Thread.cpp -o $(OBJDIR_DEBUG)\\src\\Thread.o
@@ -144,11 +141,8 @@ $(OBJDIR_RELEASE)\\src\\CSVEditor.o: src\\CSVEditor.cpp
 $(OBJDIR_RELEASE)\\src\\CSVReader.o: src\\CSVReader.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\CSVReader.cpp -o $(OBJDIR_RELEASE)\\src\\CSVReader.o
 
-$(OBJDIR_RELEASE)\\src\\CoreMain.o: src\\CoreMain.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\CoreMain.cpp -o $(OBJDIR_RELEASE)\\src\\CoreMain.o
-
-$(OBJDIR_RELEASE)\\src\\Error.o: src\\Error.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Error.cpp -o $(OBJDIR_RELEASE)\\src\\Error.o
+$(OBJDIR_RELEASE)\\src\\Core.o: src\\Core.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Core.cpp -o $(OBJDIR_RELEASE)\\src\\Core.o
 
 $(OBJDIR_RELEASE)\\src\\Font.o: src\\Font.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Font.cpp -o $(OBJDIR_RELEASE)\\src\\Font.o
@@ -171,14 +165,14 @@ $(OBJDIR_RELEASE)\\src\\RndPtr.o: src\\RndPtr.cpp
 $(OBJDIR_RELEASE)\\src\\Sound.o: src\\Sound.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Sound.cpp -o $(OBJDIR_RELEASE)\\src\\Sound.o
 
+$(OBJDIR_RELEASE)\\src\\Sprite.o: src\\Sprite.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Sprite.cpp -o $(OBJDIR_RELEASE)\\src\\Sprite.o
+
 $(OBJDIR_RELEASE)\\src\\Surface.o: src\\Surface.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Surface.cpp -o $(OBJDIR_RELEASE)\\src\\Surface.o
 
 $(OBJDIR_RELEASE)\\src\\TCPNet.o: src\\TCPNet.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\TCPNet.cpp -o $(OBJDIR_RELEASE)\\src\\TCPNet.o
-
-$(OBJDIR_RELEASE)\\src\\Texture.o: src\\Texture.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Texture.cpp -o $(OBJDIR_RELEASE)\\src\\Texture.o
 
 $(OBJDIR_RELEASE)\\src\\Thread.o: src\\Thread.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Thread.cpp -o $(OBJDIR_RELEASE)\\src\\Thread.o

@@ -1,5 +1,4 @@
-#ifndef _HEAD_BUNDLE_
-#define _HEAD_BUNDLE_
+#pragma once
 #include "Globals.h"
 #include <fstream>
 #include "mem.h"
@@ -143,4 +142,3 @@ void Snow::Bundle<size>::ReadFromFile(std::fstream& in,Uint64 pos)
 }
 #endif
 
-#endif // _HEAD_BUNDLE_

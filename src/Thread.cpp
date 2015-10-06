@@ -1,4 +1,4 @@
-#include "Core/Thread.h"
+#include "Snow/Thread.h"
 #define THREAD_WAIT 25
 using namespace Snow;
 //子线程内提供的API实现

@@ -1,5 +1,5 @@
-#include "Core/RndPtr.h"
-#include "Core/Activity.h"
+#include "Snow/RndPtr.h"
+#include "Snow/Activity.h"
 #include <stack>
 
 using namespace Snow;

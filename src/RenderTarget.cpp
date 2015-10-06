@@ -1,6 +1,6 @@
-#include "Core/RenderTarget.h"
-#include "Core/Globals.h"
-#include "Core/RndPtr.h"
+#include "Snow/RenderTarget.h"
+#include "Snow/Globals.h"
+#include "Snow/RndPtr.h"
  using namespace Snow;
 
 RenderTarget::RenderTarget(int w, int h)

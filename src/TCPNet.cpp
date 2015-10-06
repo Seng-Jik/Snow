@@ -1,4 +1,4 @@
-#include "Core/TCPNet.h"
+#include "Snow/TCPNet.h"
 using namespace Snow;
 
 bool TCPConnection::ConnectToServer(const std::string host,Uint16 port){

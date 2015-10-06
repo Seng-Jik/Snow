@@ -1,5 +1,4 @@
-#ifndef _HEAD_RNDPTR_HEAD_
-#define _HEAD_RNDPTR_HEAD_
+#pragma once
 #include "SDLbase.h"
 #include <string>
 
@@ -20,7 +19,7 @@ namespace Snow{
         int GetH(); //逻辑高
         inline int GetPhW(){return m_w;}    //物理宽
         inline int GetPhH(){return m_h;}    //物理高
-        inline Uint64 GetFpsCount(){return m_fps;};   //取已经过的fps数
+        inline Uint64 GetFrameCount(){return m_fps;};   //取已经过的帧数
         inline operator SDL_Window* (){return m_wnd;};
         inline operator SDL_Renderer* (){return m_rnd;};
         SDL_Texture* GetRenderTarget();
@@ -28,4 +27,4 @@ namespace Snow{
     };
     extern RndPtr pRnd;
 }
-#endif
+

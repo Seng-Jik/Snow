@@ -1,5 +1,5 @@
-
-#include "Core.h"
+#include "Snow.h"
+#include "Snow/Debug.h"
 using namespace std;
 using namespace Snow;
 
@@ -12,9 +12,13 @@ string ResVal::Trim(const std::string& s)
     return t;
 }
 
-void ResVal::Load(const std::string& f)
+bool ResVal::Load(const std::string& f)
 {
     ResFile in(f);
+    if(!in.Success()){
+        PNT("Snow::ResVal::Load:Can't Open ResVal " + f);
+        return false;
+    }
     Uint32 pos = 0;
     while(pos<in.Size()){
         string line = GetLine(in,pos);
@@ -81,14 +85,15 @@ void ResVal::Load(const std::string& f)
             break;
         }
     }
+    return true;
 }
 
 const string & ResVal::Str(std::string s)
 {
     UpperCase(s);
     if(m_strs.count(s) == 0){
-        string s;
-        return s;
+        PNT(string("Snow::ResVal::Str:Can't Find String Value ")+s+" in "<<this);
+        return m_nullstr;
     };
     return m_strs[s];
 }
@@ -96,13 +101,19 @@ const string & ResVal::Str(std::string s)
 float ResVal::Float(std::string s)
 {
     UpperCase(s);
-    if(m_flts.count(s) == 0) return 0;
+    if(m_flts.count(s) == 0){
+        PNT(string("Snow::ResVal::Float:Can't Find Float Value ")+s+" in "<<this);
+        return 0;
+    }
     return m_flts[s];
 }
 
 Sint32 ResVal::Int(std::string s)
 {
     UpperCase(s);
-    if(m_ints.count(s) == 0) return 0;
+    if(m_ints.count(s) == 0){
+        PNT(string("Snow::ResVal::Int:Can't Find Int Value ")+s+" in "<<this);
+        return 0;
+    }
     return m_ints[s];
 }

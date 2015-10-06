@@ -1,6 +1,4 @@
-#ifndef _HEAD_GLOBALS_HEAD_
-#define _HEAD_GLOBALS_HEAD_
-
+#pragma once
 #define FPS 60
 
 #define FOR_EACH(val,begin,end) for(auto val = begin;val != end;++val)
@@ -23,7 +21,3 @@ namespace Snow{
 }
 
 typedef unsigned char BYTE;
-
-
-#include "OS.h"
-#endif
