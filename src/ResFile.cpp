@@ -57,21 +57,23 @@ bool ResFile::Load(std::string f)
 {
     fixPath(f);
     Uint32 size;
-    char* mem = m_localLoader.GetFile(f,size);
+    char* mem;
+    for(auto p = m_readers.begin();p != m_readers.end();++p){
+        mem = (*p) -> GetFile(f,size);
+        if(mem != nullptr){
+            m_mem = mem;
+            m_size =  size;
+            return true;
+        }
+    }
+
+    mem = m_localLoader.GetFile(f,size);
     if(mem != nullptr){
         m_mem = mem;
         m_size = size;
         return true;
-    }else{
-        for(auto p = m_readers.begin();p != m_readers.end();++p){
-            mem = (*p) -> GetFile(f,size);
-            if(mem != nullptr){
-                m_mem = mem;
-                m_size =  size;
-                return true;
-            }
-        }
     }
+
     PNT(string("Snow::ResFile::Load:Can't Open ResFile ")+f);
     return false;
 }
